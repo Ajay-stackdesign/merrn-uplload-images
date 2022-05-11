@@ -9,6 +9,7 @@ const database = () => {
         })
 }
 // mongodb+srv://ajaysahani:mBEdDF6BylvPKQvn@cluster0.4kmgc.mongodb.net/upload?retryWrites=true&w=majority
+// mongodb+srv://ajaysahani:dYyacLekAhxivsmg@cluster0.xvp45.mongodb.net/upload?retryWrites=true&w=majority
 
 
 module.exports = database
