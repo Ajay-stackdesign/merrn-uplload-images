@@ -1,14 +1,13 @@
 const app = require("./app")
 const cloudinary = require("cloudinary")
-// dotenv.config({ path: "backend/config/.env" })
 const database = require("./config/database")
 
-if (process.env.NODE_ENV !== "PRODUCTION") {
+if (process.env.NODE_ENV !== "production") {
     require("dotenv").config({ path: "backend/config/.env" });
 }
 
 database()
- 
+
 
 
 cloudinary.config({
