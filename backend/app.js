@@ -3,13 +3,12 @@ const app = express()
 const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const path = require("path")
-const dotenv = require("dotenv")
 
 
-// if (process.env.NODE_ENV !== "production") {
-//     require("dotenv").config({ path: "backend/config/.env" });
-// }
-dotenv.config({ path: "backend/config/.env" });
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config({ path: "backend/config/.env" });
+}
+// dotenv.config({ path: "backend/config/.env" });
 
 
 app.use(express.json({ limit: "50mb" }))

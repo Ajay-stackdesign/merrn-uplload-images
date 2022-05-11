@@ -1,12 +1,11 @@
 const app = require("./app")
 const cloudinary = require("cloudinary")
+// dotenv.config({ path: "backend/config/.env" })
 const database = require("./config/database")
-const dotenv = require("dotenv")
 
-// if (process.env.NODE_ENV !== "production") {
+// if (process.env.NODE_ENV !== "PRODUCTION") {
 //     require("dotenv").config({ path: "backend/config/.env" });
 // }
-dotenv.config({ path: "backend/config/.env" });
 
 database()
 
@@ -18,19 +17,9 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const __dirname = path.resolve();
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-    app.get("*", (req, res) =>
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-    );
-} else {
-    app.get("/", (req, res) => {
-        res.send("API is running..");
-    });
-}
+app.use("/", (req, res) => {
+    res.send("hello world")
+})
 
 const server = app.listen(process.env.PORT, () => {
     console.log(`Server is working on http://localhost:${process.env.PORT}`);
